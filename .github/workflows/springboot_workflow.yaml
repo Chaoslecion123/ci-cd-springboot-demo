@@ -34,7 +34,7 @@ jobs:
     - name: Build
       id: build
       run: |
-        ./gradlew build
+        sudo ./gradlew build
         echo "result=OK" >> $GITHUB_OUTPUTS
 
   springboot-container:
