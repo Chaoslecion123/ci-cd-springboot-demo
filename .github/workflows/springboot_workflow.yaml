@@ -75,8 +75,8 @@ jobs:
     - name: Docker build with jar
       run: |
         docker build -t spring-boot-demo:latest .
-        repository_lowercase= $(echo "${{ env.GITHUB_REPOSITORY }}" | tr '[:upper:]' '[:lower:]')
-        docker tag python-artifact-demo:latest ghcr.io/$repository_lowercase/spring-boot-demo:latest
+        repository_lowercase=$(echo "${{ env.GITHUB_REPOSITORY }}" | tr '[:upper:]' '[:lower:]')
+        docker tag spring-boot-demo:latest latest ghcr.io/$repository_lowercase/spring-boot-demo:latest
 
 
 
