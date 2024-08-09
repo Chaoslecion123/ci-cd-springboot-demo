@@ -39,15 +39,14 @@ jobs:
         java --version
         chmod +x ./gradlew
         ./gradlew build
-        export APP_NAME=$(./gradlew getProjectName)
-        export APP_VERSION=$(./gradlew getProjectVersion)
+        export APP_JAR_NAME=$(./gradlew -q getJarName)
         echo "result=OK" >> $GITHUB_OUTPUT
 
     - name: Archive
       uses: actions/upload-artifact@v4
       with:
         name: spring-boot-java
-        path: demo/build/libs/$APP_NAME-$APP_VERSION.jar
+        path: demo/build/libs/$APP_JAR_NAME.jar
 
   springboot-container:
     runs-on: ubuntu-latest
